@@ -2,6 +2,8 @@ library(readr)
 library(dplyr)
 library(stargazer)
 
+    # IQ-EKSPERIMENTET
+
 iqdata<-read.csv("iq.csv")
 nrow(iqdata)
 
