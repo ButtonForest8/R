@@ -36,17 +36,10 @@ ggplot(kartell_case, aes(dato, bensinpris)) +
   theme_minimal()
 
 #Oppgave 5
-kartell_case$trendp1 <- ifelse(kartell_case$dato >= as.Date("1993-01-04") & kartell_case$dato <= as.Date("1997-08-27"),1,0) #Create new dummies
-kartell_case$trendp2 <- ifelse(kartell_case$dato >= as.Date("1997-08-28") & kartell_case$dato <= as.Date("1999-03-01"),1,0)
-kartell_case$trendp3 <- ifelse(kartell_case$dato >= as.Date("1999-03-02") & kartell_case$dato <= as.Date("2000-03-31"),1,0)
-
 
 regression3 <- lm(
   bensinpris ~ plattspris + skatt + jan + feb + mars + apr + may + jun + jul + aug + sep + okt + nov + trendp1 + trendp2 + trendp3, data = kartell_case)
 summary(regression3) 
-# WTF is this supposed to tell me!!!!!?? Why is trendp3 NA? When on earth were we supposed to know all this?
-#Ok så jeg googla det nå og det skyldes kolinnearitet (husker du fra MET2?) - vi må ekskludere en dummy siden de ellers adder opp til 1. 
-#Men hvordan skal vi tolke alle disse tingene. Skjønner ikke en dritt
 stargazer(regression3,type="text")
 
 
@@ -54,5 +47,3 @@ stargazer(regression3,type="text")
 regression4 <- lm(
   bensinpris ~ plattspris + skatt + jan + feb + mars + apr + may + jun + jul + aug + sep + okt + nov + trendp1 + trendp2 + trendp3 + priskrig, data = kartell_case)
 summary(regression4) 
-
-#Skjønner ingenting av dette egentlig. Bring back old SAM4
