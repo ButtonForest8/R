@@ -2,7 +2,7 @@
 R scripts
 
 
-Ensure you have the required packages first! 
+Sjekk at du har de rette pakkene først!
 
 ```
 install.packages(c("tidyverse","haven","stargazer","ymd"))
