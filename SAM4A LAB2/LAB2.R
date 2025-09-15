@@ -55,4 +55,4 @@ regression4 <- lm(
   bensinpris ~ plattspris + skatt + jan + feb + mars + apr + may + jun + jul + aug + sep + okt + nov + trendp1 + trendp2 + trendp3 + priskrig, data = kartell_case)
 summary(regression4) 
 
-#Skjønner ingenting egentlig.
+#Skjønner ingenting av dette egentlig. Bring back old SAM4
