@@ -2,10 +2,8 @@
 R scripts
 
 
-Ensure you've installed the required packages first! 
+Ensure you have the required packages first! 
 
 ```
-install.packages("readr")
-install.packages("dplyr")
-install.packages("stargazer")
+install.packages(c("tidyverse","haven","stargazer","ymd"))
 ```
