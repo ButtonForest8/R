@@ -1,3 +1,5 @@
+# FORARBEID
+
 #Read packages
 packagez <- c("dplyr","haven","ggplot2","tidyr","ymd","stargazer") 
 invisible(lapply(packagez, library, character.only=TRUE)) #Looked this up on StackOverflow. Neat alternative to six lines of "library()"
@@ -9,7 +11,11 @@ kartell_case <- read_dta("kartell_case_SAM4_H25.dta")
 kartell_case <- kartell_case %>% mutate(dato = ymd(dato))
 kartell_case_long <- kartell_case %>% select(dato, bensinpris, plattspris, skatt) %>% tidyr::gather(serie, verdi, bensinpris:skatt, factor_key = T)
 
-#Visualize
+#--------------------------------------
+
+# OPPGAVER
+
+#Visualize (Oppgave 1)
 ggplot(kartell_case_long, aes(x = dato, y = verdi, color = serie)) + 
   geom_line() +
   labs(title = "Utvikling i pris, varekost og skatt", x = element_blank(), y = "Bensinpris i øre per liter", color = "Serie") +
@@ -22,7 +28,6 @@ summary(regression)
 stargazer(regression,type="text")
 
 #Expansion (Oppgave 3)
-#This is probably an inefficient way to do this but I will not outsource my thinking to an LLM:
 regression2 <- lm(bensinpris ~ plattspris + skatt + jan + feb + mars + apr + may + jun + jul + aug + sep + okt + nov, data = kartell_case) 
 summary(regression2)
 stargazer(regression2,type="text")
