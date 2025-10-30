@@ -1,9 +1,14 @@
 # R
-R scripts
+R script for diverse fag.
 
 
 Sjekk at du har de rette pakkene først!
 
 ```
-install.packages(c("tidyverse","haven","stargazer","ymd"))
+- tidyverse
+- haven
+- stargazer
+- ymd
+- forecast
+- writexl
 ```
